@@ -41,11 +41,9 @@ function itPossibleHoldMeeting(timeBeginning, timeTheEnd, meetingStart, duration
     const timeTheEndMeeting = calculateTheEndTimeMeeting(meetingStart.hours, meetingStart.minutes, durationMeeting);
     if (timeTheEndMeeting.hours <= timeTheEnd.hours && timeTheEndMeeting.minutes <= timeTheEnd.minutes) {
       return true;
-    } else {
-      return false;
     }
-  } else {
     return false;
   }
+  return false;
 }
 
