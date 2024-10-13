@@ -41,5 +41,8 @@ function createPhotoDescription() {
     comments: Array.from({ length: getRandomInteger(0, COMMENT_COUNT) }, createComment),
   };
 }
+const newPhotoDescriptions = (cntPhotoDescription) => {
+  Array.from({ length: cntPhotoDescription }, createPhotoDescription);
+};
 
-export { createPhotoDescription };
+export { newPhotoDescriptions };

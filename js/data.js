@@ -1,4 +1,4 @@
-const NUMBER_PHOTO_DESCRIPTION_CREATED = 25;
+// const NUMBER_PHOTO_DESCRIPTION_CREATED = 25;
 const COMMENT_COUNT = 30;
 const AVATAR_COUNT = 6;
 
@@ -23,5 +23,5 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают.Как можно было поймать такой неудачный момент?!'
 ];
 
-export { NUMBER_PHOTO_DESCRIPTION_CREATED, COMMENT_COUNT, AVATAR_COUNT, NAMES, MESSAGES };
+export { COMMENT_COUNT, AVATAR_COUNT, NAMES, MESSAGES };
 
