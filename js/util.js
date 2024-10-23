@@ -41,8 +41,20 @@ function createPhotoDescription() {
     comments: Array.from({ length: getRandomInteger(0, COMMENT_COUNT) }, createComment),
   };
 }
-const newPhotoDescriptions = (cntPhotoDescription) => {
+const createPhotoDescriptions = (cntPhotoDescription) => {
   Array.from({ length: cntPhotoDescription }, createPhotoDescription);
 };
 
-export { newPhotoDescriptions };
+const createThumbnail = ({ url, comments, description, likes }) => {
+  const template = document.querySelector('#picture').content.querySelector('.picture');
+  const thumbnail = template.cloneNode(true);
+  const imgThumbnail = thumbnail.querySelector('.picture__img');
+  imgThumbnail.src = url;
+  imgThumbnail.alt = description;
+  thumbnail.querySelector('.picture__comments').textContent = comments.length;
+  thumbnail.querySelector('.picture__likes').textContent = likes;
+
+  return thumbnail;
+};
+
+export { createPhotoDescriptions, createThumbnail };

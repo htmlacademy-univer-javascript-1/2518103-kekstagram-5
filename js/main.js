@@ -1,8 +1,9 @@
+import './popup.js';
 // import { NUMBER_PHOTO_DESCRIPTION_CREATED } from './data.js';
-import { renderThumbanils } from './popup';
-import { newPhotoDescriptions } from './util.js';
+// import { renderThumbanils } from './popup';
+// import { createPhotoDescriptions } from './util.js';
 
-renderThumbanils(newPhotoDescriptions(25));
+// renderThumbanils();
 
 // const newPhotoDescriptions = Array.from({ length: NUMBER_PHOTO_DESCRIPTION_CREATED }, createPhotoDescription);
 // newPhotoDescriptions(25);
