@@ -1,3 +1,4 @@
+
 import { openBigPicture } from './big-photo.js';
 
 // Находим контейнер для вставки изображений
@@ -18,6 +19,7 @@ const createThumbnail = (photo) => {
 };
 
 // Функция, рисующая миниатюры на основе массива данных
+
 const renderThumbnails = (thumbnails) => {
   const picturesFragment = document.createDocumentFragment();
   thumbnails.forEach((photo) => {

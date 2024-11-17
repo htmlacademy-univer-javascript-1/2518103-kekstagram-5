@@ -10,6 +10,7 @@ const NUMBER_OF_AVATARS = 6;
 const LIKES_MIN = 15;
 const LIKES_MAX = 200;
 const NUMBER_OF_COMMENTS = 30;
+
 const PHOTO_DESCRIPTIONS = [
   'Жизнь прекрасна!',
   'Идеальный завтрак',
