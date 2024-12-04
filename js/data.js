@@ -9,7 +9,7 @@ const COMMENT_SEQUENCES = [
 ];
 
 const RANDOM_NAMES = [
-  'Адрей', 'Антон', 'Вася', 'Петя', 'Вика', 'Даша', 'Саша', 'Дмитрий', 'Евгений', 'Бодан', 'Света'
+  'Адрей', 'Антон', 'Вася', 'Петя', 'Вика', 'Даша', 'Саша', 'Дмитрий', 'Евгений', 'Богдан', 'Света'
 ];
 
 const RANDOM_ADVERBS = ['quickly', 'quietly', 'happily', 'sadly', 'slowly', 'carefully',
