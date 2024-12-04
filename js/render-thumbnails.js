@@ -1,34 +1,27 @@
+import { createPhotos } from './data.js';
+import { openFullview } from './big-photo.js';
 
-import { openBigPicture } from './big-photo.js';
+const photos = createPhotos();
+const photoTemplate = document.querySelector('#picture')
+  .content
+  .querySelector('.picture');
+const photosFragment = document.createDocumentFragment();
+const photosContainer = document.querySelector('.pictures');
 
-// Находим контейнер для вставки изображений
-const picturesContainer = document.querySelector('.pictures');
+photos.forEach(({ url, description, likes, comments }) => {
+  const photo = photoTemplate.cloneNode(true);
+  photo.querySelector('.picture__img').src = url;
+  photo.querySelector('.picture__img').alt = description;
+  photo.querySelector('.picture__info')
+    .querySelector('.picture__likes').textContent = likes;
+  photo.querySelector('.picture__info')
+    .querySelector('.picture__comments').textContent = comments.length;
 
-// Находим шаблон
-const thumbnailTemplate = document.querySelector('#picture').content.querySelector('.picture');
-
-// Функция, заполняющая данными объект миниатюру
-const createThumbnail = (photo) => {
-  const thumbnail = thumbnailTemplate.cloneNode(true);
-  thumbnail.querySelector('.picture__img').src = photo.url;
-  thumbnail.querySelector('.picture__img').alt = photo.description;
-  thumbnail.querySelector('.picture__likes').textContent = photo.likes;
-  thumbnail.querySelector('.picture__comments').textContent = photo.comments;
-
-  return thumbnail;
-};
-
-// Функция, рисующая миниатюры на основе массива данных
-
-const renderThumbnails = (thumbnails) => {
-  const picturesFragment = document.createDocumentFragment();
-  thumbnails.forEach((photo) => {
-    const picture = createThumbnail(photo);
-    picture.addEventListener('click', () => openBigPicture(photo));
-    picturesFragment.append(picture);
+  photosFragment.appendChild(photo);
+  photo.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    openFullview(url, description, likes, comments);
   });
-  picturesContainer.appendChild(picturesFragment);
+});
 
-};
-
-export { renderThumbnails };
+photosContainer.appendChild(photosFragment);
