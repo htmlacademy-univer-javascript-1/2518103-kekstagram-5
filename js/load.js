@@ -1,4 +1,4 @@
-import { alertError, showResultMessage } from './utils.js';
+import { alertError } from './utils.js';
 
 const BASE_URL = 'https://29.javascript.htmlacademy.pro/kekstagram';
 const ROUTE = {
@@ -10,22 +10,17 @@ const METHOD = {
   POST: 'POST',
 };
 
-const execRequest = (route, onError, method = METHOD.GET, body = null, isUpload = false) =>
-  fetch(
-    `${BASE_URL}${route}`, { method, body }
-  )
-    .then((response) => {
-      if (response.ok) {
-        if (isUpload) {
-          showResultMessage('success');
-        }
-        return response.json();
-      }
-    })
-    .catch(onError);
+const execRequest = (route, method = METHOD.GET, body = null) => fetch(
+  `${BASE_URL}${route}`, { method, body }
+)
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+  }).catch(() => alertError());
 
-const getPhotos = () => execRequest(ROUTE.GET_DATA, alertError);
+const getPhotos = () => execRequest(ROUTE.GET_DATA);
 
-const uploadPhoto = (body) => execRequest(ROUTE.SEND_DATA, showResultMessage('error'), METHOD.POST, body, true);
+const uploadPhoto = (body) => execRequest(ROUTE.SEND_DATA, METHOD.POST, body);
 
 export { getPhotos, uploadPhoto };
